@@ -1,15 +1,16 @@
 import 'package:arquitetura_app/core/routes.dart';
+import 'package:arquitetura_app/home/domain/repository/home_repository_interface.dart';
 import 'package:flutter/material.dart';
 
 import 'package:arquitetura_app/home/view_model/home_state.dart';
 import 'package:arquitetura_app/home/view_model/home_view_model.dart';
 
 class HomeView extends StatefulWidget {
-  final HomeViewModel viewModel;
+  final IHomeRepository repository;
 
   const HomeView({
     super.key,
-    required this.viewModel,
+    required this.repository,
   });
 
   @override
@@ -17,17 +18,21 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  late HomeViewModel viewModel;
+
   @override
   void initState() {
-    widget.viewModel.fetchData();
+    viewModel = HomeViewModel(homeRepository: widget.repository);
+    viewModel.fetchData();
+
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return ListenableBuilder(
-      listenable: widget.viewModel,
-      builder: (context, child) => switch (widget.viewModel.state) {
+      listenable: viewModel,
+      builder: (context, child) => switch (viewModel.state) {
         HomeStateLoading _ => Scaffold(
             appBar: AppBar(),
             body: Center(

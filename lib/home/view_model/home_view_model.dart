@@ -8,14 +8,16 @@ class HomeViewModel with ChangeNotifier {
     required this.homeRepository,
   });
 
-  HomeState state = HomeStateLoading();
+  HomeState _state = HomeStateLoading();
+  HomeState get state => _state;
 
   void fetchData() async {
-    state = HomeStateLoading();
+    _state = HomeStateLoading();
+    notifyListeners();
 
     final cep = await homeRepository.fetchData();
 
-    state = HomeStateLoaded(title: cep.localidade);
+    _state = HomeStateLoaded(title: cep.localidade);
 
     notifyListeners();
   }

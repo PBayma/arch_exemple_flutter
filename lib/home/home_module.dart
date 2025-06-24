@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:arquitetura_app/home/view/home_view.dart';
-import 'package:arquitetura_app/home/view_model/home_view_model.dart';
-
+import 'view/home_view.dart';
 import 'domain/repository/home_repository_interface.dart';
 
 class HomeModule extends StatelessWidget {
@@ -16,7 +14,7 @@ class HomeModule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HomeView(
-      viewModel: HomeViewModel(homeRepository: repository),
+      repository: repository,
     );
   }
 }

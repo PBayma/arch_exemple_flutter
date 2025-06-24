@@ -5,7 +5,7 @@ import '../../core/dependency_injection/injections.dart';
 class HomeContainer implements IContainers {
   @override
   void register() {
-    getIt.registerLazySingleton(
+    getIt.registerFactory(
       () => HomeModule(
         getIt.get(),
       ),

@@ -5,7 +5,7 @@ import 'package:arquitetura_app/details/details_module.dart';
 class DetailsContainer implements IContainers {
   @override
   void register() {
-    getIt.registerLazySingleton(
+    getIt.registerFactory(
       () => DetailsModule(
         getIt.get(),
       ),

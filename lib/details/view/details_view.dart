@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
+import '../domain/details_repository_interface.dart';
 import '../view_model/details_state.dart';
 import '../view_model/details_view_model.dart';
 
 class DetailsView extends StatefulWidget {
-  final DetailsViewModel viewModel;
+  final IDetailsRepository repository;
 
   const DetailsView({
     super.key,
-    required this.viewModel,
+    required this.repository,
   });
 
   @override
@@ -16,17 +17,21 @@ class DetailsView extends StatefulWidget {
 }
 
 class _DetailsViewState extends State<DetailsView> {
+  late DetailsViewModel viewModel;
+
   @override
   void initState() {
-    widget.viewModel.fetchData();
+    viewModel = DetailsViewModel(detailsRepository: widget.repository);
+    viewModel.fetchData();
+
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return ListenableBuilder(
-      listenable: widget.viewModel,
-      builder: (context, child) => switch (widget.viewModel.state) {
+      listenable: viewModel,
+      builder: (context, child) => switch (viewModel.state) {
         DetailsStateLoading _ => Scaffold(
             appBar: AppBar(),
             body: Center(

@@ -7,8 +7,8 @@ import 'injections.dart';
 
 class RepositoryInjection {
   static void setup() {
-    getIt.registerSingleton<IHomeRepository>(HomeRepository());
-    getIt.registerLazySingleton<IDetailsRepository>(
+    getIt.registerFactory<IHomeRepository>(() => HomeRepository());
+    getIt.registerFactory<IDetailsRepository>(
       () => DetailsRepository(),
     );
   }
