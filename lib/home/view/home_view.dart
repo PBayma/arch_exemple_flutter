@@ -1,9 +1,9 @@
 import 'package:arquitetura_app/core/routes.dart';
-import 'package:arquitetura_app/home/domain/repository/home_repository_interface.dart';
 import 'package:flutter/material.dart';
 
-import 'package:arquitetura_app/home/view_model/home_state.dart';
-import 'package:arquitetura_app/home/view_model/home_view_model.dart';
+import '../domain/repository/home_repository_interface.dart';
+import '../view_model/home_state.dart';
+import '../view_model/home_view_model.dart';
 
 class HomeView extends StatefulWidget {
   final IHomeRepository repository;
@@ -62,8 +62,19 @@ class LoadedBody extends StatelessWidget {
         children: [
           Text(state.title),
           ElevatedButton(
-            onPressed: () => Navigator.pushNamed(context, AppRouter.details),
+            onPressed: () => Navigator.pushNamed(
+              context,
+              AppRouter.details,
+              arguments: state.title,
+            ),
             child: Text('Detalhes do endereço'),
+          ),
+          ElevatedButton(
+            onPressed: () => Navigator.pushNamed(
+              context,
+              AppRouter.details,
+            ),
+            child: Text('Detalhes do endereço sem cidade'),
           ),
         ],
       ),
