@@ -1,7 +1,9 @@
 import '../models/cep.dart';
 import 'package:foundation/foundation.dart';
 
-import '../../domain/repository/home_repository_interface.dart';
+abstract class IHomeRepository {
+  Future<Cep> fetchData();
+}
 
 class HomeRepository implements IHomeRepository {
   @override

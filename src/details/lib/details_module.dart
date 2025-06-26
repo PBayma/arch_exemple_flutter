@@ -1,8 +1,8 @@
+import 'package:details/domain/get_details_usecase.dart';
 import 'package:flutter/material.dart';
-import 'package:foundation/module_parameters.dart';
+import 'package:foundation/foundation.dart';
 
 import 'view/details_view.dart';
-import 'domain/details_repository_interface.dart';
 
 class DetailsModuleParameters extends ModuleParameters<String?> {
   DetailsModuleParameters({
@@ -11,11 +11,11 @@ class DetailsModuleParameters extends ModuleParameters<String?> {
 }
 
 class DetailsModule extends StatelessWidget {
-  final IDetailsRepository repository;
+  final GetDetailsUsecase useCase;
   final ModuleParameters parameters;
 
   const DetailsModule(
-    this.repository, {
+    this.useCase, {
     super.key,
     this.parameters = const EmptyModuleParameters(),
   });
@@ -23,7 +23,7 @@ class DetailsModule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DetailsView(
-      repository: repository,
+      useCase: useCase,
       cityName: parameters.args ?? '',
     );
   }

@@ -1,7 +1,10 @@
 import 'package:foundation/foundation.dart';
 
 import '../models/cep_details.dart';
-import '../../domain/details_repository_interface.dart';
+
+abstract class IDetailsRepository {
+  Future<CepDetails> fetchData();
+}
 
 class DetailsRepository implements IDetailsRepository {
   @override

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:foundation/app_router.dart';
 
-import '../domain/repository/home_repository_interface.dart';
+import '../domain/usecases/get_home_usecase.dart';
 import '../view_model/home_state.dart';
 import '../view_model/home_view_model.dart';
 
 class HomeView extends StatefulWidget {
-  final IHomeRepository repository;
+  final GetHomeUsecase usecase;
 
   const HomeView({
     super.key,
-    required this.repository,
+    required this.usecase,
   });
 
   @override
@@ -22,7 +22,7 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   void initState() {
-    viewModel = HomeViewModel(homeRepository: widget.repository);
+    viewModel = HomeViewModel(usecase: widget.usecase);
     viewModel.fetchData();
 
     super.initState();

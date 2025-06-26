@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import '../domain/repository/home_repository_interface.dart';
+import 'package:foundation/foundation.dart';
+import '../domain/usecases/get_home_usecase.dart';
 import 'home_state.dart';
 
 class HomeViewModel with ChangeNotifier {
-  final IHomeRepository homeRepository;
+  final GetHomeUsecase usecase;
   HomeViewModel({
-    required this.homeRepository,
+    required this.usecase,
   });
 
   HomeState _state = HomeStateLoading();
@@ -15,7 +16,7 @@ class HomeViewModel with ChangeNotifier {
     _state = HomeStateLoading();
     notifyListeners();
 
-    final cep = await homeRepository.fetchData();
+    final cep = await usecase(NoParams());
 
     _state = HomeStateLoaded(title: cep.localidade);
 

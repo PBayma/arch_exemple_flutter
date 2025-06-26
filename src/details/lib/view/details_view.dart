@@ -1,17 +1,17 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:details/domain/get_details_usecase.dart';
 import 'package:flutter/material.dart';
 
-import '../domain/details_repository_interface.dart';
 import '../view_model/details_state.dart';
 import '../view_model/details_view_model.dart';
 
 class DetailsView extends StatefulWidget {
-  final IDetailsRepository repository;
+  final GetDetailsUsecase useCase;
   final String cityName;
 
   const DetailsView({
     super.key,
-    required this.repository,
+    required this.useCase,
     required this.cityName,
   });
 
@@ -24,7 +24,7 @@ class _DetailsViewState extends State<DetailsView> {
 
   @override
   void initState() {
-    viewModel = DetailsViewModel(detailsRepository: widget.repository);
+    viewModel = DetailsViewModel(usecase: widget.useCase);
     viewModel.fetchData();
 
     super.initState();

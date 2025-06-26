@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
 import 'view/home_view.dart';
-import 'domain/repository/home_repository_interface.dart';
+import 'domain/usecases/get_home_usecase.dart';
 
 class HomeModule extends StatelessWidget {
-  final IHomeRepository repository;
+  final GetHomeUsecase usecase;
 
   const HomeModule(
-    this.repository, {
+    this.usecase, {
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return HomeView(
-      repository: repository,
+      usecase: usecase,
     );
   }
 }
