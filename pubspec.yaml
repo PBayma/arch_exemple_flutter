@@ -32,13 +32,13 @@ dependencies:
     sdk: flutter
   
   foundation:
-    path: ./src/foundation
+    path: ./modules/foundation
 
   home:
-    path: ./src/home
+    path: ./modules/home
 
   details:
-    path: ./src/details
+    path: ./modules/details
 
 
   # The following adds the Cupertino Icons font to your application.

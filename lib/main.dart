@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foundation/app_router.dart';
+import 'package:foundation/foundation.dart';
 
 import 'core/dependency_injection/injections.dart';
 import 'core/routes.dart';

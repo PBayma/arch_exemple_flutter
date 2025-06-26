@@ -52,7 +52,7 @@ packages:
   details:
     dependency: "direct main"
     description:
-      path: "src/details"
+      path: "modules/details"
       relative: true
     source: path
     version: "0.0.1"
@@ -101,7 +101,7 @@ packages:
   foundation:
     dependency: "direct main"
     description:
-      path: "src/foundation"
+      path: "modules/foundation"
       relative: true
     source: path
     version: "0.0.1"
@@ -116,7 +116,7 @@ packages:
   home:
     dependency: "direct main"
     description:
-      path: "src/home"
+      path: "modules/home"
       relative: true
     source: path
     version: "0.0.1"

@@ -1,8 +1,6 @@
 import 'package:details/details_module.dart';
-import 'package:foundation/app_router.dart';
-import 'package:foundation/injection_container.dart';
+import 'package:foundation/foundation.dart';
 import 'package:home/home_module.dart';
-
 import 'package:flutter/material.dart';
 
 final routes = {
