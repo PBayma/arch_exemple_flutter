@@ -41,21 +41,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.19.0"
-  cupertino_icons:
-    dependency: "direct main"
-    description:
-      name: cupertino_icons
-      sha256: ba631d1c7f7bef6b729a622b7b752645a2d076dba9976925b8f25725a30e1ee6
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.8"
-  details:
-    dependency: "direct main"
-    description:
-      path: "src/details"
-      relative: true
-    source: path
-    version: "0.0.1"
   dio:
     dependency: transitive
     description:
@@ -101,7 +86,7 @@ packages:
   foundation:
     dependency: "direct main"
     description:
-      path: "src/foundation"
+      path: "../foundation"
       relative: true
     source: path
     version: "0.0.1"
@@ -113,13 +98,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "8.0.3"
-  home:
-    dependency: "direct main"
-    description:
-      path: "src/home"
-      relative: true
-    source: path
-    version: "0.0.1"
   http_parser:
     dependency: transitive
     description:

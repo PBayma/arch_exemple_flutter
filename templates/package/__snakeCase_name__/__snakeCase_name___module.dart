@@ -3,6 +3,12 @@ import 'package:flutter/material.dart';
 import 'domain/repository/{{snakeCase name}}_repository_interface.dart';
 import 'view/{{snakeCase name}}_view.dart';
 
+class {{pascalCase name}}ModuleParameters extends ModuleParameters<Object> {
+  {{pascalCase name}}ModuleParameters({
+    required super.args,
+  });
+}
+
 class {{pascalCase name}}Module extends StatelessWidget {
   final I{{pascalCase name}}Repository repository;
 

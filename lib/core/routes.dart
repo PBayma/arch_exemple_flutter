@@ -1,12 +1,9 @@
-import 'package:arquitetura_app/core/dependency_injection/injections.dart';
-import 'package:arquitetura_app/details/details_module.dart';
-import 'package:arquitetura_app/home/home_module.dart';
-import 'package:flutter/material.dart';
+import 'package:details/details_module.dart';
+import 'package:foundation/app_router.dart';
+import 'package:foundation/injection_container.dart';
+import 'package:home/home_module.dart';
 
-class AppRouter {
-  static const String home = '/';
-  static const String details = '/details';
-}
+import 'package:flutter/material.dart';
 
 final routes = {
   AppRouter.home: (context) => HomeModule(getIt.get()),

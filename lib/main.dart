@@ -1,6 +1,8 @@
-import 'package:arquitetura_app/core/dependency_injection/injections.dart';
-import 'package:arquitetura_app/core/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:foundation/app_router.dart';
+
+import 'core/dependency_injection/injections.dart';
+import 'core/routes.dart';
 
 void main() {
   Injections.setUp();
