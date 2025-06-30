@@ -1,7 +1,6 @@
-name: home
+name: test_foundation
 description: "A new Flutter package project."
 version: 0.0.1
-publish_to: 'none'
 homepage:
 
 environment:
@@ -12,14 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  foundation:
-    path: ../foundation
-
-  details:
-    path: ../details
-  
-  test_foundation:
-    path: ../test_foundation
+  mocktail: ^1.0.4
 
 dev_dependencies:
   flutter_test:

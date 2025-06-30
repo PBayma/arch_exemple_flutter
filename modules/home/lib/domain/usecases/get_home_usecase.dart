@@ -11,6 +11,7 @@ class GetHomeUsecase implements UseCase<Cep, NoParams> {
 
   @override
   Future<Cep> call(NoParams params) async {
-    return await homeRepository.fetchData();
+    final result = await homeRepository.fetchData();
+    return result;
   }
 }

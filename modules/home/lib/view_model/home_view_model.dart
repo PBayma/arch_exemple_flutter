@@ -13,10 +13,7 @@ class HomeViewModel with ChangeNotifier {
   HomeState _state = HomeStateLoading();
   HomeState get state => _state;
 
-  void fetchData() async {
-    _state = HomeStateLoading();
-    notifyListeners();
-
+  Future<void> fetchData() async {
     final cep = await usecase(NoParams());
 
     _state = HomeStateLoaded(title: cep.localidade);

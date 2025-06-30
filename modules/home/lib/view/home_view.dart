@@ -33,34 +33,39 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    return ListenableBuilder(
-      listenable: viewModel,
-      builder: (context, child) => switch (viewModel.state) {
-        HomeStateLoading _ => Scaffold(
-            appBar: AppBar(),
-            body: Center(
-              child: Text('Loadings'),
+    return Scaffold(
+      body: ListenableBuilder(
+        listenable: viewModel,
+        builder: (context, child) => switch (viewModel.state) {
+          HomeStateLoading _ => Scaffold(
+              appBar: AppBar(),
+              body: Center(
+                child: Text('Loadings'),
+              ),
             ),
-          ),
-        HomeStateLoaded loaded => Scaffold(
-            appBar: AppBar(),
-            body: LoadedBody(
-              state: loaded,
-              onTapWithArguments: widget.onTapWithArguments,
-              onTap: widget.onTap,
-            ),
-          )
-      },
+          HomeStateLoaded loaded => Scaffold(
+              appBar: AppBar(),
+              body: LoadedBody(
+                state: loaded,
+                onTapWithArguments: widget.onTapWithArguments,
+                onTap: widget.onTap,
+              ),
+            )
+        },
+      ),
     );
   }
 }
 
 class LoadedBody extends StatelessWidget {
+  final firstButtonKey = Key('fullAddressButton');
+  final secondButtonKey = Key('halfAddressButton');
+
   final HomeStateLoaded state;
   final Function(BuildContext, String) onTapWithArguments;
   final Function(BuildContext) onTap;
 
-  const LoadedBody({
+  LoadedBody({
     super.key,
     required this.state,
     required this.onTapWithArguments,
@@ -74,10 +79,12 @@ class LoadedBody extends StatelessWidget {
         children: [
           Text(state.title),
           ElevatedButton(
+            key: firstButtonKey,
             onPressed: () => onTapWithArguments(context, state.title),
             child: Text('Detalhes do endereço'),
           ),
           ElevatedButton(
+            key: secondButtonKey,
             onPressed: () => onTap(context),
             child: Text('Detalhes do endereço sem cidade'),
           ),
