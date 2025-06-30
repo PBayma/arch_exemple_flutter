@@ -1,5 +1,5 @@
-import '../../core/dependency_injection/injections.dart';
-import '../../core/dependency_injection/modules_injection.dart';
+import 'package:foundation/foundation.dart';
+
 import '../{{snakeCase name}}_module.dart';
 
 

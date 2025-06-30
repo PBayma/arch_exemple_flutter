@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-import '../domain/repository/{{snakeCase name}}_repository_interface.dart';
+import '../domain/usecases/get_{{snakeCase name}}_usecase.dart';
 import '../view_model/{{snakeCase name}}_state.dart';
 import '../view_model/{{snakeCase name}}_view_model.dart';
 
 class {{pascalCase name}}View extends StatefulWidget {
-  final I{{pascalCase name}}Repository repository;
+  final Get{{pascalCase name}}UseCase usecase;
 
   const {{pascalCase name}}View({
     super.key,
-    required this.repository,
+    required this.usecase,
   });
 
   @override
@@ -21,7 +21,7 @@ class _{{pascalCase name}}ViewState extends State<{{pascalCase name}}View> {
 
   @override
   void initState() {
-    viewModel = {{pascalCase name}}ViewModel({{camelCase name}}Repository: widget.repository);
+    viewModel = {{pascalCase name}}ViewModel({{snakeCase name}}Usecase: widget.usecase);
     viewModel.fetchData();
 
     super.initState();

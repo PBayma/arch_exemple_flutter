@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import '../domain/repository/{{snakeCase name}}_repository_interface.dart';
+import 'package:foundation/foundation.dart';
+
+import '../domain/usecases/get_{{snakeCase name}}_usecase.dart';
 import '{{snakeCase name}}_state.dart';
 
 class {{pascalCase name}}ViewModel with ChangeNotifier {
-  final I{{pascalCase name}}Repository {{camelCase name}}Repository;
+  final Get{{pascalCase name}}UseCase {{camelCase name}}Usecase;
   {{pascalCase name}}ViewModel({
-    required this.{{camelCase name}}Repository,
+    required this.{{camelCase name}}Usecase,
   });
 
   {{pascalCase name}}State _state = {{pascalCase name}}StateLoading();
@@ -15,7 +17,7 @@ class {{pascalCase name}}ViewModel with ChangeNotifier {
     _state = {{pascalCase name}}StateLoading();
     notifyListeners();
 
-    final args = await {{camelCase name}}Repository.fetchData();
+    final args = await {{camelCase name}}Usecase(NoParams());
 
     _state = {{pascalCase name}}StateLoaded(args: args);
 
