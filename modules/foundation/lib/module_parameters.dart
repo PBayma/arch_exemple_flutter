@@ -1,9 +1,21 @@
-class ModuleParameters<T> {
-  final T args;
+import 'package:flutter/widgets.dart';
 
-  const ModuleParameters({required this.args});
+class EmptyModuleParameters {
+  const EmptyModuleParameters();
 }
 
-class EmptyModuleParameters extends ModuleParameters {
-  const EmptyModuleParameters({super.args});
+abstract class BaseModule<TypeParams> extends StatelessWidget {
+  const BaseModule({super.key});
+
+  TypeParams getParams(BuildContext context) {
+    final args = ModalRoute.of(context)?.settings.arguments;
+
+    if (TypeParams is EmptyModuleParameters) {
+      return const EmptyModuleParameters() as TypeParams;
+    } else if (args is TypeParams) {
+      return args;
+    } else {
+      throw Exception('Invalid parameters type: ${TypeParams.runtimeType}');
+    }
+  }
 }

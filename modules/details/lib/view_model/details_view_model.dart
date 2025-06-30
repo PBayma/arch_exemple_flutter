@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foundation/foundation.dart';
 
-import '../domain/get_details_usecase.dart';
+import '../domain/usecases/get_details_usecase.dart';
 import 'details_state.dart';
 
 class DetailsViewModel with ChangeNotifier {

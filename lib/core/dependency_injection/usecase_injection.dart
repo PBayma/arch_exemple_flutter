@@ -1,4 +1,4 @@
-import 'package:details/domain/get_details_usecase.dart';
+import 'package:details/domain/usecases/get_details_usecase.dart';
 import 'package:foundation/foundation.dart';
 import 'package:home/domain/usecases/get_home_usecase.dart';
 

@@ -1,7 +1,7 @@
 import 'package:foundation/foundation.dart';
 
-import '../data/models/cep_details.dart';
-import '../data/repository/details_repository.dart';
+import '../../data/models/cep_details.dart';
+import '../../data/repository/details_repository.dart';
 
 class GetDetailsUsecase implements UseCase<CepDetails, NoParams> {
   final IDetailsRepository detailsRepository;

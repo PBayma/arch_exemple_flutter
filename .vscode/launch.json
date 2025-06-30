@@ -5,41 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "arquitetura_app",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "arquitetura_app (profile mode)",
+            "name": "main",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
-        },
-        {
-            "name": "arquitetura_app (release mode)",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "release"
-        },
-        {
-            "name": "foundation",
-            "cwd": "lib/foundation",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "foundation (profile mode)",
-            "cwd": "lib/foundation",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "profile"
-        },
-        {
-            "name": "foundation (release mode)",
-            "cwd": "lib/foundation",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "release"
+            "program": "lib/main.dart"
         }
     ]
 }

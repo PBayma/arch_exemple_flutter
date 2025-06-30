@@ -1,10 +1,11 @@
+import 'package:details/details_module.dart';
 import 'package:flutter/material.dart';
 import 'package:foundation/foundation.dart';
 
 import 'view/home_view.dart';
 import 'domain/usecases/get_home_usecase.dart';
 
-class HomeModule extends StatelessWidget {
+class HomeModule extends BaseModule<EmptyModuleParameters> {
   final GetHomeUsecase usecase;
 
   const HomeModule(
@@ -25,7 +26,11 @@ class HomeModule extends StatelessWidget {
     Navigator.pushNamed(
       context,
       AppRouter.details,
-      arguments: cityName,
+      arguments: DetailsModuleParameters(
+        cityName: cityName,
+        uf: "DF",
+        rua: "Rua 123",
+      ),
     );
   }
 
@@ -33,6 +38,7 @@ class HomeModule extends StatelessWidget {
     Navigator.pushNamed(
       context,
       AppRouter.details,
+      arguments: DetailsModuleParameters.empty(),
     );
   }
 }

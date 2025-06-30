@@ -1,31 +1,45 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/material.dart';
 import 'package:foundation/foundation.dart';
 
-import 'domain/get_details_usecase.dart';
-import 'package:flutter/material.dart';
-
+import 'domain/usecases/get_details_usecase.dart';
 import 'view/details_view.dart';
 
-class DetailsModuleParameters extends ModuleParameters<String?> {
+class DetailsModuleParameters {
+  final String cityName;
+  final String uf;
+  final String rua;
+
+  factory DetailsModuleParameters.empty() {
+    return DetailsModuleParameters(
+      cityName: '',
+      uf: '',
+      rua: '',
+    );
+  }
+
   DetailsModuleParameters({
-    required super.args,
+    required this.cityName,
+    required this.uf,
+    required this.rua,
   });
 }
 
-class DetailsModule extends StatelessWidget {
+class DetailsModule extends BaseModule<DetailsModuleParameters> {
   final GetDetailsUsecase useCase;
-  final ModuleParameters parameters;
 
   const DetailsModule(
     this.useCase, {
     super.key,
-    this.parameters = const EmptyModuleParameters(),
   });
 
   @override
   Widget build(BuildContext context) {
+    final parameters = getParams(context);
+
     return DetailsView(
       useCase: useCase,
-      cityName: parameters.args ?? '',
+      cityName: parameters.cityName,
     );
   }
 }

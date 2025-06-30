@@ -1,5 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import '../domain/get_details_usecase.dart';
+import '../domain/usecases/get_details_usecase.dart';
 import 'package:flutter/material.dart';
 
 import '../view_model/details_state.dart';

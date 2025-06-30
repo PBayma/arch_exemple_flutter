@@ -11,17 +11,13 @@ Route<dynamic>? onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
     case AppRouter.home:
       return MaterialPageRoute(
-        builder: (context) => HomeModule(
-          getIt.get(),
-        ),
+        builder: (context) => HomeModule(getIt.get()),
       );
     case AppRouter.details:
       return MaterialPageRoute(
-        builder: (context) => DetailsModule(
-          getIt.get(),
-          parameters: DetailsModuleParameters(
-            args: settings.arguments as String?,
-          ),
+        builder: (context) => DetailsModule(getIt.get()),
+        settings: RouteSettings(
+          arguments: settings.arguments,
         ),
       );
     default:

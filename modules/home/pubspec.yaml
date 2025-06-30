@@ -15,6 +15,9 @@ dependencies:
   foundation:
     path: ../foundation
 
+  details:
+    path: ../details
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
