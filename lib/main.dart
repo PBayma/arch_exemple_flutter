@@ -6,7 +6,6 @@ import 'core/routes.dart';
 
 void main() {
   Injections.setUp();
-
   runApp(const MyApp());
 }
 
@@ -21,6 +20,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      localizationsDelegates: localizationsDelegates,
+      supportedLocales: supportedLocales,
       routes: routes,
       initialRoute: AppRouter.home,
       onGenerateRoute: (settings) => onGenerateRoute(settings),

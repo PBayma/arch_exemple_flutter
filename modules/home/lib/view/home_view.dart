@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foundation/foundation.dart';
 
 import '../domain/usecases/get_home_usecase.dart';
 import '../view_model/home_state.dart';
@@ -33,7 +34,12 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
+    final localization = AppLocalizations.of(context)!;
+
     return Scaffold(
+      appBar: AppBar(
+        title: Text(localization.appTitle),
+      ),
       body: ListenableBuilder(
         listenable: viewModel,
         builder: (context, child) => switch (viewModel.state) {

@@ -1,0 +1,10 @@
+{
+    "helloWorld": "Olá Mundo!",
+    "@helloWorld": {
+        "description": "Primeira linha de código de um programador!"
+    },
+    "appTitle": "Aplicativo de Exemplo",
+    "@appTitle": {
+        "description": "Título do aplicativo de exemplo para demonstração de internacionalização"
+    }
+}
