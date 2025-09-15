@@ -9,12 +9,14 @@ class HomeView extends StatefulWidget {
   final GetHomeUsecase usecase;
   final void Function(BuildContext, String) onTapWithArguments;
   final void Function(BuildContext) onTap;
+  final void Function(BuildContext) onTapSearchCep;
 
   const HomeView({
     super.key,
     required this.usecase,
     required this.onTapWithArguments,
     required this.onTap,
+    required this.onTapSearchCep,
   });
 
   @override
@@ -55,6 +57,7 @@ class _HomeViewState extends State<HomeView> {
                 state: loaded,
                 onTapWithArguments: widget.onTapWithArguments,
                 onTap: widget.onTap,
+                onTapSearchCep: widget.onTapSearchCep,
               ),
             )
         },
@@ -66,16 +69,19 @@ class _HomeViewState extends State<HomeView> {
 class LoadedBody extends StatelessWidget {
   final firstButtonKey = Key('fullAddressButton');
   final secondButtonKey = Key('halfAddressButton');
+  final thirdButtonKey = Key('cepSearchButton');
 
   final HomeStateLoaded state;
   final Function(BuildContext, String) onTapWithArguments;
   final Function(BuildContext) onTap;
+  final void Function(BuildContext) onTapSearchCep;
 
   LoadedBody({
     super.key,
     required this.state,
     required this.onTapWithArguments,
     required this.onTap,
+    required this.onTapSearchCep,
   });
 
   @override
@@ -93,6 +99,11 @@ class LoadedBody extends StatelessWidget {
             key: secondButtonKey,
             onPressed: () => onTap(context),
             child: Text('Detalhes do endereço sem cidade'),
+          ),
+          ElevatedButton(
+            key: thirdButtonKey,
+            onPressed: () => onTapSearchCep(context),
+            child: Text('Poc tela de cadastro'),
           ),
         ],
       ),

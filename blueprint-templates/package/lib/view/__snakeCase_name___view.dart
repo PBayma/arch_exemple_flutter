@@ -21,7 +21,7 @@ class _{{pascalCase name}}ViewState extends State<{{pascalCase name}}View> {
 
   @override
   void initState() {
-    viewModel = {{pascalCase name}}ViewModel({{snakeCase name}}Usecase: widget.usecase);
+    viewModel = {{pascalCase name}}ViewModel(usecase: widget.usecase);
     viewModel.fetchData();
 
     super.initState();

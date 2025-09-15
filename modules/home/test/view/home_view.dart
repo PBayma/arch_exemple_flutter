@@ -12,6 +12,7 @@ void main() {
   late GetHomeUsecase usecase;
   String validateOnTapWithArguments = '';
   bool validateOnTap = false;
+  bool validateOnTapSearchCep = false;
 
   setUp(() {
     repositoryMock = HomeRepositoryMock();
@@ -31,6 +32,9 @@ void main() {
         },
         onTap: (context) {
           validateOnTap = true;
+        },
+        onTapSearchCep: (context) {
+          validateOnTapSearchCep = true;
         },
       ),
     ));

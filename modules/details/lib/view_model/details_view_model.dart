@@ -13,12 +13,38 @@ class DetailsViewModel with ChangeNotifier {
 
   DetailsState state = DetailsStateLoading();
 
-  void fetchData() async {
+  void startWriting() {
+    if (state is DetailsStateLoaded) {
+      state = DetailsStateLoaded(
+        details: (state as DetailsStateLoaded).details,
+        hasValidCep: (state as DetailsStateLoaded).hasValidCep,
+        isWriting: true,
+      );
+      notifyListeners();
+    }
+  }
+
+  void startScreen() async {
     state = DetailsStateLoading();
+    notifyListeners();
+    try {
+      final cep = await usecase('01001000');
+      state = DetailsStateLoaded(details: cep);
+      notifyListeners();
+    } catch (e) {
+      state = DetailsStateError(message: 'Erro ao carregar dados iniciais');
+      notifyListeners();
+      return;
+    }
+  }
 
-    final cep = await usecase(NoParams());
+  void fetchData(String cepText) async {
+    state = DetailsStateLoading();
+    notifyListeners();
 
-    state = DetailsStateLoaded(details: cep);
+    final cep = await usecase(cepText);
+
+    state = DetailsStateLoaded(details: cep, hasValidCep: true);
 
     notifyListeners();
   }

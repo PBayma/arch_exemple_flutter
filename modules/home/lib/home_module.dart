@@ -19,6 +19,7 @@ class HomeModule extends BaseModule<EmptyModuleParameters> {
       usecase: usecase,
       onTap: onTap,
       onTapWithArguments: onTapWithArguments,
+      onTapSearchCep: onTapSearchCep,
     );
   }
 
@@ -39,6 +40,13 @@ class HomeModule extends BaseModule<EmptyModuleParameters> {
       context,
       AppRouter.details,
       arguments: DetailsModuleParameters.empty(),
+    );
+  }
+
+  void onTapSearchCep(BuildContext context) {
+    Navigator.pushNamed(
+      context,
+      AppRouter.registration,
     );
   }
 }

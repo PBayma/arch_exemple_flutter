@@ -3,7 +3,7 @@ import 'package:foundation/foundation.dart';
 import '../../data/models/cep_details.dart';
 import '../../data/repository/details_repository.dart';
 
-class GetDetailsUsecase implements UseCase<CepDetails, NoParams> {
+class GetDetailsUsecase implements UseCase<CepDetails, String> {
   final IDetailsRepository detailsRepository;
 
   GetDetailsUsecase({
@@ -11,7 +11,7 @@ class GetDetailsUsecase implements UseCase<CepDetails, NoParams> {
   });
 
   @override
-  Future<CepDetails> call(NoParams _) async {
-    return await detailsRepository.fetchData();
+  Future<CepDetails> call(String params) async {
+    return await detailsRepository.fetchData(params);
   }
 }
